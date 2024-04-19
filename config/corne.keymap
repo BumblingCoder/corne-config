@@ -91,8 +91,8 @@
 
         numbers_symbols {
             bindings = <
-&kp TAB    &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS        &kp ASTRK  &none        &kp RPAR     &none
-&kp LCTRL  &trans    &trans  &trans    &trans    &trans       &kp EXCL   &kp EQUAL       &kp PLUS   &brackets_l  &brackets_r  &kp GRAVE
+&kp TAB    &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS        &kp ASTRK  &kp GRAVE    &none        &none
+&kp LCTRL  &trans    &trans  &trans    &trans    &trans       &kp EXCL   &kp EQUAL       &kp PLUS   &brackets_l  &brackets_r  &none
 &kp LSHFT  &trans    &trans  &trans    &trans    &trans       &kp POUND  &kp UNDERSCORE  &kp MINUS  &kp PIPE     &kp TILDE    &none
                              &kp LGUI  &trans    &kp SPACE    &kp RET    &trans          &kp RALT
             >;
