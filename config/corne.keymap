@@ -15,7 +15,6 @@
 #define GAMING   4
 
 / {
-
     behaviors {
         rpi: require_prior_idle {
             compatible = "zmk,behavior-hold-tap";
@@ -26,6 +25,30 @@
             require-prior-idle-ms = <125>;
             bindings = <&kp>, <&kp>;
         };
+
+        hrm_l: hrm_l {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HRM_L";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "balanced";
+            hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 39 40 41>;
+            retro-tap;
+        };
+
+        hrm_r: hrm_r {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HRM_R";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "balanced";
+            retro-tap;
+            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;
+        };
     };
 
     keymap {
@@ -33,19 +56,19 @@
 
         keyboard {
             bindings = <
-&none       &kp Q        &kp W        &kp E         &kp R             &kp T            &kp Y    &kp U              &kp I          &kp O         &kp P           &none
-&none       &rpi LGUI A  &rpi LALT S  &rpi LSHFT D  &rpi LCTRL F      &kp G            &kp H    &rpi RCTRL J       &rpi RSHFT K   &rpi RALT L   &rpi RGUI SEMI  &kp SQT
-&to GAMING  &kp Z        &kp X        &kp C         &kp V             &kp B            &kp N    &kp M              &kp COMMA      &kp DOT       &kp FSLH        &none
-                                      &mo NUMPAD    &lt NUMROW SPACE  &kp BSPC         &kp TAB  &lt SYMBOLS ENTER  &kp ESCAPE
+&none       &kp Q        &kp W        &kp E         &kp R             &kp T       &kp Y    &kp U              &kp I         &kp O        &kp P           &none
+&none       &rpi LGUI A  &rpi LALT S  &rpi LSHFT D  &rpi LCTRL F      &kp G       &kp H    &rpi RCTRL J       &rpi RSHFT K  &rpi RALT L  &rpi RGUI SEMI  &kp SQT
+&to GAMING  &kp Z        &kp X        &kp C         &kp V             &kp B       &kp N    &kp M              &kp COMMA     &kp DOT      &kp FSLH        &none
+                                      &mo NUMPAD    &lt NUMROW SPACE  &kp BSPC    &kp TAB  &lt SYMBOLS ENTER  &kp ESCAPE
             >;
         };
 
         bluetooth_numrow {
             bindings = <
-&bt BT_CLR  &kp N1        &kp N2        &kp N3        &kp N4        &kp N5          &kp N6    &kp N7    &kp N8    &kp N9     &kp N0  &none
-&trans      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none     &none     &kp UP    &none      &none   &trans
-&kp LSHFT   &kp LC(Z)     &kp RC(X)     &kp RC(C)     &kp RC(V)     &trans          &trans    &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans
-                                        &none         &trans        &trans          &caps_word   &trans    &kp RALT
+&bt BT_CLR  &kp N1        &kp N2        &kp N3        &kp N4        &kp N5          &kp N6      &kp N7    &kp N8    &kp N9     &kp N0  &none
+&trans      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none       &none     &kp UP    &none      &none   &trans
+&kp LSHFT   &kp LC(Z)     &kp RC(X)     &kp RC(C)     &kp RC(V)     &trans          &trans      &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans
+                                        &none         &trans        &trans          &caps_word  &trans    &kp RALT
             >;
         };
 
@@ -60,21 +83,20 @@
 
         Numpad {
             bindings = <
-&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5       &trans     &kp KP_N7  &kp KP_N8  &kp KP_N9  &trans  &trans
-&trans  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10      &trans     &kp KP_N4  &kp KP_N5  &kp KP_N6  &trans  &trans
-&trans  &kp F11 &kp F12 &trans  &trans  &trans       &trans     &kp KP_N1  &kp KP_N2  &kp KP_N3  &trans  &trans
-                        &trans  &trans  &trans       &kp ENTER  &kp KP_N0  &kp KP_DOT
+&trans  &kp F1   &kp F2   &kp F3  &kp F4  &kp F5     &trans     &kp KP_N7  &kp KP_N8   &kp KP_N9  &trans  &trans
+&trans  &kp F6   &kp F7   &kp F8  &kp F9  &kp F10    &trans     &kp KP_N4  &kp KP_N5   &kp KP_N6  &trans  &trans
+&trans  &kp F11  &kp F12  &trans  &trans  &trans     &trans     &kp KP_N1  &kp KP_N2   &kp KP_N3  &trans  &trans
+                          &trans  &trans  &trans     &kp ENTER  &kp KP_N0  &kp KP_DOT
             >;
         };
 
         Gaming {
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I       &kp O    &kp P     &none
-&kp LSHFT  &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K       &kp L    &kp SEMI  &kp SQT
-&kp LCTRL  &kp Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &kp COMMA   &kp DOT  &kp FSLH  &to BASE
-               &kp SPACE &kp LALT  &kp BACKSPACE &kp TAB  &kp ENTER  &kp ESCAPE
+&kp TAB    &kp Q  &kp W  &kp E      &kp R     &kp T            &kp Y    &kp U      &kp I       &kp O    &kp P     &none
+&kp LSHFT  &kp A  &kp S  &kp D      &kp F     &kp G            &kp H    &kp J      &kp K       &kp L    &kp SEMI  &kp SQT
+&kp LCTRL  &kp Z  &kp X  &kp C      &kp V     &kp B            &kp N    &kp M      &kp COMMA   &kp DOT  &kp FSLH  &to BASE
+                         &kp SPACE  &kp LALT  &kp BACKSPACE    &kp TAB  &kp ENTER  &kp ESCAPE
             >;
         };
-
     };
 };
