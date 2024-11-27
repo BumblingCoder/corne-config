@@ -18,8 +18,8 @@
 #
 ---
 include:
-  - board: nice_nano_v2
-    shield: corne_left
+  # - board: nice_nano_v2
+  #   shield: corne_left
   - board: nice_nano_v2
     shield: corne_right
     # Add custom dongle and a peripheral left corne
@@ -28,4 +28,6 @@ include:
   - board: nice_nano_v2
     shield: corne_peripheral_left
   - board: nice_nano_v2
+    shield: settings_reset
+  - board: seeeduino_xiao_ble
     shield: settings_reset
