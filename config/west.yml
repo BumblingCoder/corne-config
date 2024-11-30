@@ -8,7 +8,7 @@ manifest:
     - name: zmk
       remote: zmkfirmware
       # Last good revision
-      revision: 36f146226e598c788a76367686aac3af7c4deccbf
+      revision: 36f146226e598c788a76367686aac3af7c4deccb
       # First bad revision
       # revision: 60a8f2934043b98a8fabcd1dd7dce1a4de30c2a9
       import: app/west.yml
